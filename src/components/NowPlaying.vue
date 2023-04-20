@@ -8,13 +8,21 @@
 <script>
 export default {
   methods: {
-    handle_song(name){
-      this.playing = name
+    handle_song: function(details) {
+      this.playing = details;
     },
   },
-  mounted () {
-      this.$root.$on(`select_song` , this.song[`title`])
-    },
+  mounted() {
+    this.$root.$on(`select_song`, this.handle_song);
+  },
+  data() {
+    return{
+        playing: `Pick A Song`
+    }
+  },
+    props: {
+    song: Object,
+  },
 };
 </script>
 
