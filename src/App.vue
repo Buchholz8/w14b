@@ -12,14 +12,6 @@ import PlayList from "@/components/PlayList.vue";
 import NowPlaying from "@/components/NowPlaying.vue";
 
 export default {
-  methods: {
-    handle_song(name){
-      this.playing = name
-    },
-    mounted () {
-      this.$root.$on(`select_song` , this.playing)
-    },
-  },
   data() {
     return {
       playing: undefined,

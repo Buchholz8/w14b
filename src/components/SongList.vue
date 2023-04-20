@@ -10,18 +10,18 @@
     </section>
   </div>
 </template>
-//is this hidden
+
 <script>
 export default {
   methods: {
     playlist() {
-      this.$root.$emit(`playlist`, this.song);
+      this.$root.$emit(`playlist`, this.song[`title`]);
     },
     select_song() {
-      this.$root.$emit(`select_song`, this.song[`title`] , this.song[`artist`] , this.song.image_url );
+      this.$root.$emit(`select_song`, this.song[`title`]);
     },
   },
-  props: {
+    props: {
     song: Object,
   },
 };
