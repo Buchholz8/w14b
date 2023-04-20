@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <song-list v-for="(song , i) in songs" :key="i"></song-list>
+    <song-list v-for="(song , i) in songs" :key="i" :song="songs[i]"></song-list>
     <play-list></play-list>
     <now-playing></now-playing>
   </div>
@@ -13,10 +13,12 @@ import NowPlaying from "@/components/NowPlaying.vue";
 
 export default {
   methods: {
-    handle_song: function(name){
+    handle_song(name){
       this.playing = name
-      this.$emit(`handle_song` , name)
-    }
+    },
+    mounted () {
+      this.$root.$on(`select_song` , this.playing)
+    },
   },
   data() {
     return {

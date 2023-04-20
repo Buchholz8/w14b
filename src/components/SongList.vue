@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>Songs</h4>
+    <h4>Songs:</h4>
     <section>
       <p>{{ song[`title`] }}</p>
       <p>{{ song[`artist`] }}</p>
@@ -14,13 +14,16 @@
 <script>
 export default {
   methods: {
+    playlist() {
+      this.$root.$emit(`playlist`, this.song);
+    },
     select_song() {
-      this.$emit(`select_song`, this.song[`title`]);
+      this.$root.$emit(`select_song`, this.song[`title`]);
     },
   },
   props: {
     song: Object,
-  }
+  },
 };
 </script>
 
